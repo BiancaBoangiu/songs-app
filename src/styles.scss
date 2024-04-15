@@ -1,1 +1,210 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #fff;
+    background-color: #000;
+  }
+  
+  .add-song-section {
+    background: url("assets/app-image.jpg") center center/cover;
+  }
+  .song-details {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding: 20px 10px;
+    min-height: 550px;
+    padding-left: 20%;
+    width: auto;
+  }
+  
+  form {
+    background: rgba(73, 70, 70, 0.529);
+    border-radius: 20px;
+    padding: 40px;
+    font-size: 21px;
+    min-width: 370px;
+    min-height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  form label {
+    display: inline-block;
+    width: 120px;
+  }
+  
+  .song-details input {
+    padding-left: 10px;
+    margin-left: 5px;
+    border: 0;
+    outline: 0;
+    border-radius: 20px;
+    height: 30px;
+  }
+  
+  .song-details input:focus {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .button {
+    align-self: end;
+    margin-right: 30px;
+  }
+  
+  .add-button,
+  .save-button {
+    cursor: pointer;
+    color: #fff;
+    border: 0;
+    font-size: 16px;
+    width: 120px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: #000;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .error-message {
+    display: none;
+    margin-bottom: 10px;
+    color: rgb(183, 26, 26);
+  }
+  
+  .songs-list {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 20%;
+  }
+  
+  .songs-list ol {
+    min-width: 300px;
+    max-width: 500px;
+    border: 1px solid rgba(73, 70, 70, 0.529);
+    padding: 20px;
+    margin: 0;
+    border-radius: 20px;
+  }
+  
+  .song {
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .song:hover {
+    background-color: #c0fdb7a4;
+    transform: translateY(-5px);
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .delete-edit {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .delete-song,
+  .edit-song,
+  .vote-song {
+    background-color: rgb(161, 255, 224);
+    color: #000;
+    border-radius: 50%;
+    padding: 6px;
+  }
+  
+  .vote-song {
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .fa-circle-play {
+    font-size: 23px;
+    margin-right: 5px;
+  }
+  
+  .fa-pen-to-square,
+  .fa-trash:hover {
+    cursor: pointer;
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      font-size: 15px;
+    }
+  
+    .song {
+      align-items: start;
+    }
+  
+    .song-details {
+      padding: 20px;
+      align-items: center;
+      min-height: 300px;
+    }
+  
+    form {
+      box-sizing: border-box;
+      font-size: 17px;
+      padding: 10px 5px;
+      min-width: 300px;
+    }
+  
+    form label {
+      width: 70px;
+    }
+  
+    .song-details input {
+      height: 25px;
+    }
+  
+    .button {
+      margin-right: 40px;
+    }
+  
+    .songs-list {
+      margin-right: 0;
+      justify-content: center;
+    }
+  
+    .songs-list ol {
+      border: 0;
+      padding: 10px 20px;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 768px) {
+    .song-details {
+      padding: 10px;
+      align-items: center;
+    }
+  
+    .songs-list {
+      justify-content: center;
+      margin: 0;
+    }
+  
+    .songs-list ol {
+      border: 0;
+    }
+  }
+  

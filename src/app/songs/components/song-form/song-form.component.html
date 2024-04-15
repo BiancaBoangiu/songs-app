@@ -1,0 +1,28 @@
+<section class="add-song-section">
+  <div class="song-details">
+    <form>
+      <div>
+        <label for="artist">Artist</label>
+        <input
+          type="text"
+          name="artist"
+          id="artist"
+          required
+          [(ngModel)]="artist"
+        />
+      </div>
+      <div>
+        <label for="song">Song Name</label>
+        <input type="text" name="song" id="song" required [(ngModel)]="song" />
+      </div>
+
+      <div class="error-message"></div>
+      <div class="button">
+        <button type="submit" class="add-button" (click)="addSong()">
+          <i class="fa-solid fa-plus"></i> Add song
+        </button>
+        <button type="button" class="save-button">Save changes</button>
+      </div>
+    </form>
+  </div>
+</section>

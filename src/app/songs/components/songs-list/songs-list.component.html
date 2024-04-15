@@ -1,0 +1,8 @@
+<section class="songs-list" *ngIf="songs">
+  <ol>
+    <app-song-details
+      *ngFor="let song of songs"
+      [song]="song"
+    ></app-song-details>
+  </ol>
+</section>
