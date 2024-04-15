@@ -16,5 +16,8 @@ export class SongsListComponent {
     this.songsService.getSongs().subscribe((songs) => {
       this.songs = songs;
     });
+    this.songsService.songToDelete$.subscribe((songId) => {
+      this.songs = this.songs.filter((song) => song.id !== songId);
+    });
   }
 }

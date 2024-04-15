@@ -1,55 +1,22 @@
 {
   "songs": [
     {
-      "artist": "9",
-      "song": "9",
-      "album": "9",
-      "votes": 10,
-      "id": 5
-    },
-    {
-      "artist": "7",
-      "song": "7",
-      "album": "7",
-      "votes": 16,
-      "id": 6
-    },
-    {
-      "artist": "1",
-      "song": "1",
-      "album": "1",
-      "votes": 12,
-      "id": 7
-    },
-    {
-      "artist": "5",
-      "song": "5",
-      "votes": 3,
-      "id": 8
-    },
-    {
-      "artist": "4",
-      "song": "4",
-      "votes": 0,
-      "id": 9
-    },
-    {
-      "artist": "4",
-      "song": "4",
-      "votes": 15,
-      "id": 10
-    },
-    {
-      "artist": "5",
-      "song": "5",
-      "votes": 0,
-      "id": 11
-    },
-    {
-      "artist": "sadsadas",
-      "song": "dasdasdasdsadsa",
+      "artist": "dsfdsfs",
+      "song": "fdsfdsfdsfds",
       "votes": 0,
       "id": 12
+    },
+    {
+      "artist": "gdhdfhgfd",
+      "song": "dfgfdgfdgfdgd",
+      "votes": 0,
+      "id": 13
+    },
+    {
+      "artist": "gdfgfdgfd",
+      "song": "gfdgfdgfdgfdgdf",
+      "votes": 0,
+      "id": 14
     }
   ]
 }
