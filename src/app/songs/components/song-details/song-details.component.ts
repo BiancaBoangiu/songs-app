@@ -17,6 +17,8 @@ export class SongDetailsComponent {
       this.songsService.updateSongToDelete(songId);
     });
   }
-  editSong(songId: number) {}
+  editSong(song: Song) {
+    this.songsService.updateSongToEdit(song);
+  }
   voteSong(songId: number) {}
 }

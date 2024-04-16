@@ -18,10 +18,22 @@
 
       <div class="error-message"></div>
       <div class="button">
-        <button type="submit" class="add-button" (click)="addSong()">
+        <button
+          type="submit"
+          class="add-button"
+          (click)="addSong()"
+          *ngIf="!isSongEdited"
+        >
           <i class="fa-solid fa-plus"></i> Add song
         </button>
-        <button type="button" class="save-button">Save changes</button>
+        <button
+          type="button"
+          class="save-button"
+          *ngIf="isSongEdited"
+          (click)="saveEditedSong()"
+        >
+          Save changes
+        </button>
       </div>
     </form>
   </div>

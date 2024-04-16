@@ -16,8 +16,14 @@ export class SongsListComponent {
     this.songsService.getSongs().subscribe((songs) => {
       this.songs = songs;
     });
+
     this.songsService.songToDelete$.subscribe((songId) => {
       this.songs = this.songs.filter((song) => song.id !== songId);
+    });
+
+    this.songsService.editedSong$.subscribe((editedSong) => {
+      const index = this.songs.findIndex((song) => song.id === editedSong.id);
+      this.songs[index] = editedSong;
     });
   }
 }
