@@ -12,6 +12,7 @@ export class SongsService {
 
   songToDelete$: Subject<number> = new Subject<number>();
   songToEdit$: Subject<Song> = new Subject<Song>();
+  songToAdd$: Subject<Song> = new Subject<Song>();
   editedSong$: Subject<Song> = new Subject<Song>();
 
   constructor(private http: HttpClient) {}
@@ -27,13 +28,12 @@ export class SongsService {
     this.editedSong$.next(song);
   }
 
-  getSongs(): Observable<Song[]> {
-    return this.http.get<Song[]>(this.songsURL);
+  updateSongToAdd(song: Song) {
+    this.songToAdd$.next(song);
   }
 
-  getSongById(songId: number): Observable<Song> {
-    const songURL = `${this.songsURL}/${songId}`;
-    return this.http.get<Song>(songURL);
+  getSongs(): Observable<Song[]> {
+    return this.http.get<Song[]>(this.songsURL);
   }
 
   addSong(artist: string, song: string): Observable<Song> {

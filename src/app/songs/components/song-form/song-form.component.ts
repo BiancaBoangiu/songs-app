@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SongsService } from '../../services/songs.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-song-form',
@@ -12,6 +13,9 @@ export class SongFormComponent {
   votes!: number;
   songId!: number;
   isSongEdited: boolean = false;
+
+  @ViewChild('songForm') songForm!: NgForm;
+
   constructor(private songsService: SongsService) {}
 
   ngOnInit() {
@@ -25,7 +29,10 @@ export class SongFormComponent {
   }
 
   addSong() {
-    this.songsService.addSong(this.artist, this.song).subscribe();
+    this.songsService.addSong(this.artist, this.song).subscribe((song) => {
+      this.songsService.updateSongToAdd(song);
+      this.songForm.resetForm();
+    });
   }
 
   saveEditedSong() {
@@ -33,9 +40,8 @@ export class SongFormComponent {
       .editSong(this.songId, this.artist, this.song, this.votes)
       .subscribe((song) => {
         this.isSongEdited = false;
-        this.artist = '';
-        this.song = '';
         this.songsService.updateEditedSong(song);
+        this.songForm.resetForm();
       });
   }
 }

@@ -1,16 +1,16 @@
 {
   "songs": [
     {
-      "artist": "dsfdsfds",
-      "song": "dsfsdfsdfds",
-      "votes": 5,
-      "id": 14
+      "artist": "asdasd",
+      "song": "asdasdasdas",
+      "votes": 0,
+      "id": 1
     },
     {
-      "artist": "E",
-      "song": "F",
-      "votes": 3,
-      "id": 15
+      "artist": "fgdfg",
+      "song": "fdgfdgfdgdfgd",
+      "votes": 4,
+      "id": 2
     }
   ]
 }
