@@ -20,5 +20,9 @@ export class SongDetailsComponent {
   editSong(song: Song) {
     this.songsService.updateSongToEdit(song);
   }
-  voteSong(songId: number) {}
+  voteSong(songId: number, votes: number) {
+    this.songsService.voteSong(songId, votes).subscribe((song) => {
+      this.songsService.updateEditedSong(song);
+    });
+  }
 }

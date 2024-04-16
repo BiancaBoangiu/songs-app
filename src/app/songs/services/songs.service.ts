@@ -66,5 +66,9 @@ export class SongsService {
     return this.http.put<Song>(songURL, body);
   }
 
-  voteSong(songId: number) {}
+  voteSong(songId: number, votes: number): Observable<Song> {
+    const songURL = `${this.songsURL}/${songId}`;
+    const body = { votes: votes + 1 };
+    return this.http.patch<Song>(songURL, body);
+  }
 }

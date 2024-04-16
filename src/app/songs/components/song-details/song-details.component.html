@@ -7,7 +7,11 @@
   <div class="delete-edit">
     <i class="fa-solid fa-trash delete-song" (click)="deleteSong(song.id)"></i>
     <i class="fa-solid fa-pen-to-square edit-song" (click)="editSong(song)"></i>
-    <button class="vote-song" (click)="voteSong(song.id)" title="Vote">
+    <button
+      class="vote-song"
+      (click)="voteSong(song.id, song.votes)"
+      title="Vote"
+    >
       <span> {{ song.votes }} </span>
       <i class="fa-solid fa-up-long"></i>
     </button>
