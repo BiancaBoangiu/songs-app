@@ -7,22 +7,44 @@
           type="text"
           name="artist"
           id="artist"
+          ngModel
           required
-          [(ngModel)]="artist"
+          #artist="ngModel"
+          [(ngModel)]="artistValue"
         />
-      </div>
-      <div>
-        <label for="song">Song Name</label>
-        <input type="text" name="song" id="song" required [(ngModel)]="song" />
+        <div
+          class="error-message"
+          *ngIf="artist.invalid && (artist.dirty || artist.touched)"
+        >
+          Field required
+        </div>
       </div>
 
-      <div class="error-message"></div>
+      <div>
+        <label for="song">Song Name</label>
+        <input
+          type="text"
+          name="song"
+          id="song"
+          ngModel
+          required
+          #song="ngModel"
+          [(ngModel)]="songValue"
+        />
+        <div
+          class="error-message"
+          *ngIf="song.invalid && (song.dirty || song.touched)"
+        >
+          Field required
+        </div>
+      </div>
       <div class="button">
         <button
           type="submit"
           class="add-button"
           (click)="addSong()"
           *ngIf="!isSongEdited"
+          [disabled]="songForm.invalid"
         >
           <i class="fa-solid fa-plus"></i> Add song
         </button>
@@ -31,6 +53,7 @@
           class="save-button"
           *ngIf="isSongEdited"
           (click)="saveEditedSong()"
+          [disabled]="songForm.invalid"
         >
           Save changes
         </button>

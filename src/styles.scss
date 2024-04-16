@@ -78,9 +78,10 @@ body {
   }
   
   .error-message {
-    display: none;
-    margin-bottom: 10px;
     color: rgb(183, 26, 26);
+    margin-left:150px;
+    margin-top:10px;
+    font-size:18px;
   }
   
   .songs-list {
@@ -190,6 +191,11 @@ body {
       border: 0;
       padding: 10px 20px;
     }
+
+    
+    .error-message{
+        margin-left:100px;
+    }
   }
   
   @media (min-width: 481px) and (max-width: 768px) {
@@ -205,6 +211,10 @@ body {
   
     .songs-list ol {
       border: 0;
+    }
+
+    .error-message{
+        margin-left:50%;
     }
   }
   

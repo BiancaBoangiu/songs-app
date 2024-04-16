@@ -8,11 +8,14 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./song-form.component.scss'],
 })
 export class SongFormComponent {
-  artist!: string;
-  song!: string;
+  artistValue!: string;
+  songValue!: string;
   votes!: number;
   songId!: number;
+
   isSongEdited: boolean = false;
+  artistInputError: boolean = false;
+  songInputError: boolean = false;
 
   @ViewChild('songForm') songForm!: NgForm;
 
@@ -21,23 +24,27 @@ export class SongFormComponent {
   ngOnInit() {
     this.songsService.songToEdit$.subscribe((song) => {
       this.isSongEdited = true;
-      this.artist = song.artist;
-      this.song = song.song;
+      this.artistValue = song.artist;
+      this.songValue = song.song;
       this.votes = song.votes;
       this.songId = song.id;
     });
   }
 
   addSong() {
-    this.songsService.addSong(this.artist, this.song).subscribe((song) => {
-      this.songsService.updateSongToAdd(song);
-      this.songForm.resetForm();
-    });
+    console.log(this.artistValue);
+    console.log(this.songValue);
+    this.songsService
+      .addSong(this.artistValue, this.songValue)
+      .subscribe((song) => {
+        this.songsService.updateSongToAdd(song);
+        this.songForm.resetForm();
+      });
   }
 
   saveEditedSong() {
     this.songsService
-      .editSong(this.songId, this.artist, this.song, this.votes)
+      .editSong(this.songId, this.artistValue, this.songValue, this.votes)
       .subscribe((song) => {
         this.isSongEdited = false;
         this.songsService.updateEditedSong(song);
