@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Song } from '../models/song.interface';
 import { Observable } from 'rxjs/internal/Observable';
-import { Subject } from 'rxjs';
+import { Subject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -33,14 +33,17 @@ export class SongsService {
   }
 
   getSongs(): Observable<Song[]> {
-    return this.http.get<Song[]>(this.songsURL);
+    return this.http
+      .get<Song[]>(this.songsURL)
+      .pipe(map((songs) => songs.sort((a, b) => b.votes - a.votes)));
   }
 
-  addSong(artist: string, song: string): Observable<Song> {
+  addSong(artist: string, song: string, date: number): Observable<Song> {
     const body = {
       artist,
       song,
       votes: 0,
+      date,
     };
     return this.http.post<Song>(this.songsURL, body);
   }
@@ -50,20 +53,14 @@ export class SongsService {
     return this.http.delete<Song>(songURL);
   }
 
-  editSong(
-    songId: number,
-    artist: string,
-    song: string,
-    votes: number
-  ): Observable<Song> {
+  editSong(songId: number, artist: string, song: string): Observable<Song> {
     const songURL = `${this.songsURL}/${songId}`;
     const body = {
       artist,
       song,
-      votes,
     };
 
-    return this.http.put<Song>(songURL, body);
+    return this.http.patch<Song>(songURL, body);
   }
 
   voteSong(songId: number, votes: number): Observable<Song> {

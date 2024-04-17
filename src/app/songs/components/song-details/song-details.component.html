@@ -1,19 +1,27 @@
-<li class="song">
-  <div class="song-name">
-    <i class="fa-solid fa-circle-play"></i>
-    <span> {{ song.artist }} - {{ song.song }}( ) </span>
-  </div>
+<li>
+  <div class="song">
+    <div class="song-name">
+      <i class="fa-solid fa-circle-play"></i>
+      <span> {{ song.artist }} - {{ song.song }} ({{ formattedDate }} ) </span>
+    </div>
 
-  <div class="delete-edit">
-    <i class="fa-solid fa-trash delete-song" (click)="deleteSong(song.id)"></i>
-    <i class="fa-solid fa-pen-to-square edit-song" (click)="editSong(song)"></i>
-    <button
-      class="vote-song"
-      (click)="voteSong(song.id, song.votes)"
-      title="Vote"
-    >
-      <span> {{ song.votes }} </span>
-      <i class="fa-solid fa-up-long"></i>
-    </button>
+    <div class="delete-edit">
+      <i
+        class="fa-solid fa-trash delete-song"
+        (click)="deleteSong(song.id)"
+      ></i>
+      <i
+        class="fa-solid fa-pen-to-square edit-song"
+        (click)="editSong(song)"
+      ></i>
+      <button
+        class="vote-song"
+        (click)="voteSong(song.id, song.votes)"
+        title="Vote"
+      >
+        <span> {{ song.votes }} </span>
+        <i class="fa-solid fa-up-long"></i>
+      </button>
+    </div>
   </div>
 </li>

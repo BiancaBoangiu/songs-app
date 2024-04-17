@@ -3,4 +3,5 @@ export interface Song {
   artist: string;
   song: string;
   votes: number;
+  date: number;
 }

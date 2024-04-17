@@ -32,10 +32,9 @@ export class SongFormComponent {
   }
 
   addSong() {
-    console.log(this.artistValue);
-    console.log(this.songValue);
+    const date = new Date().getTime();
     this.songsService
-      .addSong(this.artistValue, this.songValue)
+      .addSong(this.artistValue, this.songValue, date)
       .subscribe((song) => {
         this.songsService.updateSongToAdd(song);
         this.songForm.resetForm();
@@ -44,7 +43,7 @@ export class SongFormComponent {
 
   saveEditedSong() {
     this.songsService
-      .editSong(this.songId, this.artistValue, this.songValue, this.votes)
+      .editSong(this.songId, this.artistValue, this.songValue)
       .subscribe((song) => {
         this.isSongEdited = false;
         this.songsService.updateEditedSong(song);
