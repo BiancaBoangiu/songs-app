@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { Song } from '../../models/song.interface';
 import { SongsService } from '../../services/songs.service';
 import { DatePipe } from '@angular/common';
@@ -21,8 +21,16 @@ export class SongDetailsComponent {
     this.formattedDate =
       this.datePipe.transform(date, 'dd/MM/yyyy HH:mm') || '';
     this.text = `${this.song.artist} - ${this.song.song} (${this.formattedDate}) `;
+  }
 
-    this.maxLength = window.innerWidth < 480 ? 15 : 30;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    console.log(window.innerWidth);
+    this.updateMaxLength();
+  }
+
+  private updateMaxLength() {
+    this.maxLength = window.innerWidth < 480 ? 10 : 30;
   }
 
   deleteSong(songId: number) {

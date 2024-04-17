@@ -29,7 +29,7 @@ body {
     border-radius: 20px;
     padding: 40px;
     font-size: 21px;
-    min-width: 400px;
+    min-width: 350px;
     min-height: 170px;
     display: flex;
     justify-content: center;
@@ -67,9 +67,9 @@ body {
     cursor: pointer;
     color: #fff;
     border: 0;
-    font-size: 16px;
+    font-size: 17px;
     width: 120px;
-    height: 35px;
+    height: 36px;
     border-radius: 20px;
     background-color: #000;
   }
@@ -185,14 +185,14 @@ body {
     }
 
     .songs-list {
-      margin-right: 0;
+       margin-right: 0px;
       justify-content: center;
     }
   
     .songs-list ol {
       border: 0;
       padding: 10px;
-      min-width:200px;
+      min-width:250px;
     }
 
     
