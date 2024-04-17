@@ -12,6 +12,7 @@ body {
   .add-song-section {
     background: url("assets/app-image.jpg") center center/cover;
   }
+
   .song-details {
     display: flex;
     justify-content: center;
@@ -28,7 +29,7 @@ body {
     border-radius: 20px;
     padding: 40px;
     font-size: 21px;
-    min-width: 370px;
+    min-width: 400px;
     min-height: 170px;
     display: flex;
     justify-content: center;
@@ -92,7 +93,7 @@ body {
   }
   
   .songs-list ol {
-    min-width: 300px;
+    min-width: 350px;
     max-width: 500px;
     border: 1px solid rgba(73, 70, 70, 0.529);
     padding: 20px 10px 20px 40px;
@@ -180,8 +181,9 @@ body {
   
     .button {
       margin-right: 40px;
+      
     }
-  
+
     .songs-list {
       margin-right: 0;
       justify-content: center;
@@ -189,7 +191,8 @@ body {
   
     .songs-list ol {
       border: 0;
-      padding: 10px 20px;
+      padding: 10px;
+      min-width:200px;
     }
 
     
@@ -211,6 +214,7 @@ body {
   
     .songs-list ol {
       border: 0;
+      min-width:400px;
     }
 
     .error-message{

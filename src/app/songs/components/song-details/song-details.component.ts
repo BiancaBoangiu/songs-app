@@ -11,6 +11,8 @@ import { DatePipe } from '@angular/common';
 export class SongDetailsComponent {
   @Input() song!: Song;
   formattedDate!: string;
+  text: string = '';
+  maxLength: number = 30;
 
   constructor(private songsService: SongsService, private datePipe: DatePipe) {}
 
@@ -18,6 +20,9 @@ export class SongDetailsComponent {
     const date = new Date(this.song.date);
     this.formattedDate =
       this.datePipe.transform(date, 'dd/MM/yyyy HH:mm') || '';
+    this.text = `${this.song.artist} - ${this.song.song} (${this.formattedDate}) `;
+
+    this.maxLength = window.innerWidth < 480 ? 15 : 30;
   }
 
   deleteSong(songId: number) {

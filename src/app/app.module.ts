@@ -9,6 +9,7 @@ import { SongDetailsComponent } from './songs/components/song-details/song-detai
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { TruncatePipe } from './songs/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DatePipe } from '@angular/common';
     SongFormComponent,
     SongsListComponent,
     SongDetailsComponent,
+    TruncatePipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DatePipe],

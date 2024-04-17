@@ -2,7 +2,10 @@
   <div class="song">
     <div class="song-name">
       <i class="fa-solid fa-circle-play"></i>
-      <span> {{ song.artist }} - {{ song.song }} ({{ formattedDate }} ) </span>
+
+      <span>
+        {{ text | truncate : maxLength }}
+      </span>
     </div>
 
     <div class="delete-edit">
