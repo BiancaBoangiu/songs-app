@@ -8,8 +8,8 @@
       "id": 31
     },
     {
-      "artist": "6666",
-      "song": "77777",
+      "artist": "A",
+      "song": "B",
       "votes": 12,
       "date": 1713344897228,
       "id": 33
@@ -20,13 +20,6 @@
       "votes": 14,
       "date": 1713346980364,
       "id": 34
-    },
-    {
-      "artist": "ghgfhgf",
-      "song": "hgfhgfhgfh",
-      "votes": 0,
-      "date": 1713346983156,
-      "id": 35
     }
   ]
 }

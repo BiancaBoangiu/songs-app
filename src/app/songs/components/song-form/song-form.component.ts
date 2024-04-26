@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { SongsService } from '../../services/songs.service';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-song-form',
@@ -19,10 +20,12 @@ export class SongFormComponent {
 
   @ViewChild('songForm') songForm!: NgForm;
 
+  private subscription!: Subscription;
+
   constructor(private songsService: SongsService) {}
 
   ngOnInit() {
-    this.songsService.songToEdit$.subscribe((song) => {
+    this.subscription = this.songsService.songToEdit$.subscribe((song) => {
       this.isSongEdited = true;
       this.artistValue = song.artist;
       this.songValue = song.song;
@@ -33,12 +36,14 @@ export class SongFormComponent {
 
   addSong() {
     const date = new Date().getTime();
-    this.songsService
-      .addSong(this.artistValue, this.songValue, date)
-      .subscribe((song) => {
-        this.songsService.updateSongToAdd(song);
-        this.songForm.resetForm();
-      });
+    if (this.songForm.valid) {
+      this.songsService
+        .addSong(this.artistValue, this.songValue, date)
+        .subscribe((song) => {
+          this.songsService.updateSongToAdd(song);
+          this.songForm.resetForm();
+        });
+    }
   }
 
   saveEditedSong() {
@@ -49,5 +54,9 @@ export class SongFormComponent {
         this.songsService.updateEditedSong(song);
         this.songForm.resetForm();
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

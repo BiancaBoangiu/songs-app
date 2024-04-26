@@ -23,9 +23,8 @@ export class SongDetailsComponent {
     this.text = `${this.song.artist} - ${this.song.song} (${this.formattedDate}) `;
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    console.log(window.innerWidth);
+  @HostListener('window:resize')
+  onResize() {
     this.updateMaxLength();
   }
 
