@@ -10,14 +10,18 @@ import { Subscription } from 'rxjs';
 })
 export class SongsListComponent {
   songs!: Song[];
+  areSongsLoading: boolean = false;
   private subscriptions: Subscription[] = [];
 
   constructor(private songsService: SongsService) {}
 
   ngOnInit() {
+    this.areSongsLoading = true;
+    this.songsService.getSongs();
     this.subscriptions.push(
-      this.songsService.getSongs().subscribe((songs) => {
+      this.songsService.songsList$.subscribe((songs) => {
         this.songs = songs;
+        this.areSongsLoading = false;
       }),
 
       this.songsService.songToDelete$.subscribe((songId) => {

@@ -14,6 +14,7 @@ export class SongsService {
   songToEdit$: Subject<Song> = new Subject<Song>();
   songToAdd$: Subject<Song> = new Subject<Song>();
   editedSong$: Subject<Song> = new Subject<Song>();
+  songsList$: Subject<Song[]> = new Subject<Song[]>();
 
   constructor(private http: HttpClient) {}
 
@@ -32,10 +33,15 @@ export class SongsService {
     this.songToAdd$.next(song);
   }
 
-  getSongs(): Observable<Song[]> {
-    return this.http
+  updateSongs(songs: Song[]) {
+    this.songsList$.next(songs);
+  }
+
+  getSongs(): void {
+    this.http
       .get<Song[]>(this.songsURL)
-      .pipe(map((songs) => songs.sort((a, b) => b.votes - a.votes)));
+      .pipe(map((songs) => songs.sort((a, b) => b.votes - a.votes)))
+      .subscribe((songs) => this.updateSongs(songs));
   }
 
   addSong(artist: string, song: string, date: number): Observable<Song> {

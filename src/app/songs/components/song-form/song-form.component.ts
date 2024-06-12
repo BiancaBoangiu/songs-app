@@ -15,8 +15,6 @@ export class SongFormComponent {
   songId!: number;
 
   isSongEdited: boolean = false;
-  artistInputError: boolean = false;
-  songInputError: boolean = false;
 
   @ViewChild('songForm') songForm!: NgForm;
 

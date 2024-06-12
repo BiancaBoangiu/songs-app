@@ -45,6 +45,7 @@ export class SongDetailsComponent {
   voteSong(songId: number, votes: number) {
     this.songsService.voteSong(songId, votes).subscribe((song) => {
       this.songsService.updateEditedSong(song);
+      this.songsService.getSongs();
     });
   }
 }

@@ -1,4 +1,7 @@
-<section class="songs-list" *ngIf="songs && songs.length > 0">
+<section
+  class="songs-list"
+  *ngIf="!areSongsLoading && songs && songs.length > 0"
+>
   <ol>
     <app-song-details
       *ngFor="let song of songs"
@@ -6,3 +9,7 @@
     ></app-song-details>
   </ol>
 </section>
+
+<div class="spinner-container">
+  <mat-spinner mode="indeterminate"></mat-spinner>
+</div>
